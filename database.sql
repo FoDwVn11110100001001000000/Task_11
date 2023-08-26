@@ -23,8 +23,9 @@ CREATE TABLE groups (
 DROP TABLE IF EXISTS subjects;
 CREATE TABLE subjects (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    subjects VARCHAR(255) UNIQUE NOT NULL,
-    teacher TEXT
+    subj VARCHAR(255) NOT NULL,
+    teacher_name INTEGER,
+    FOREIGN KEY (teacher_name) REFERENCES teachers(id)
 );
 
 -- Table: grades
@@ -34,5 +35,5 @@ CREATE TABLE grades (
     subjects TEXT,
     grade TEXT,
     grade_date TEXT,
-    FOREIGN KEY (student) REFERENCES students(student)
-);
+    FOREIGN KEY (students) REFERENCES student(id)
+

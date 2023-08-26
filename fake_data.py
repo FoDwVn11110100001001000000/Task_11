@@ -36,8 +36,8 @@ def subject():
         "Образотворче мистецтво",
         "Фізична культура",
     ]
-    random_subjects = sample(list_of_subjects, k=7)
-    return random_subjects
+    random_subject = choice(list_of_subjects)
+    return random_subject
 
 def date():
     past_date = fake.past_date(start_date="-365d")
@@ -50,3 +50,5 @@ def grade():
     quantity = randint(1,3)
     grades_str = [choice(grades) for _ in range(quantity)]
     return grades_str
+
+print(grade())
