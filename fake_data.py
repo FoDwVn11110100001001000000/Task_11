@@ -1,4 +1,4 @@
-from random import sample, choice, randint
+from random import choice, randint
 
 from faker import Faker
 
@@ -45,10 +45,6 @@ def date():
     return date_str
 
 def grade():
-    grades = ['A', 'B', 'C', 'D', 'E']
-
-    quantity = randint(1,3)
-    grades_str = [choice(grades) for _ in range(quantity)]
+    grades = [ 1, 2, 3, 4, 5 ]
+    grades_str = choice(grades)
     return grades_str
-
-print(grade())

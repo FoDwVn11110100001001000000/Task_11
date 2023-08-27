@@ -2,7 +2,9 @@
 DROP TABLE IF EXISTS students;
 CREATE TABLE students (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    student VARCHAR(255) UNIQUE NOT NULL
+    student VARCHAR(255) UNIQUE NOT NULL,
+    group_id INTEGER,
+    FOREIGN KEY (group_id) REFERENCES groups(id)
 );
 
 -- Table: teachers
@@ -31,9 +33,11 @@ CREATE TABLE subjects (
 -- Table: grades
 DROP TABLE IF EXISTS grades;
 CREATE TABLE grades (
-    student TEXT,
-    subjects TEXT,
-    grade TEXT,
+    student_id INTEGER,
+    subject_id INTEGER,
+    grade INTEGER,
     grade_date TEXT,
-    FOREIGN KEY (students) REFERENCES student(id)
+    FOREIGN KEY (student_id) REFERENCES students(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id)
+);
 
